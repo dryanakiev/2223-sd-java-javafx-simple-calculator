@@ -130,7 +130,11 @@ public class Calculator extends Application {
     }
 
     private void handleButtonPressNumber(String buttonValue) {
-        textField.setText(textField.getText() + buttonValue);
+        if (Objects.equals(textField.getText(), "0") && !Objects.equals(buttonValue, "0")){
+            textField.setText(buttonValue);
+        } else if (!Objects.equals(textField.getText(), "0")){
+            textField.setText(textField.getText() + buttonValue);
+        }
     }
 
     private void handleButtonPressClear() {
